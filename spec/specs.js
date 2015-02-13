@@ -11,7 +11,8 @@ describe("triangle", function(){
   it("will return scalene if none of the sides are equal", function() {
     expect(triangle(5,6,7)).to.equal("scalene");
   })
-  it("will return that the inputed 3 sides do not equal a triangle if any side is at least the lenth of the other two sides combined", function() {
+
+  it("will return that the inputed 3 sides do not make a valid triangle if any side is at least the lenth of the other two sides combined", function() {
     expect(triangle(2,2,8)).to.equal("This is not a valid triangle");
   });
 
