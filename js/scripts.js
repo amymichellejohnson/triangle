@@ -1,17 +1,19 @@
 var triangle = function(side1, side2, side3) {
-
-  if (side1 + side2 <= side3 || side1 + side3 <= side2 || side2 + side3 <=side1) {
-    return "This is not a valid triangle"
+  if (isNaN(side1) || isNaN(side2) || isNaN(side3)) {
+    return "An error has occurred, please check your input!";
   } else {
-    if (side1 === side2 && side1 === side3 && side2 === side3) {
-      return "equilateral"
-    } else if (side1 === side2 || side1 === side3 || side2 === side3) {
-      return "isosceles"
-    } else if (side1 !== side2 && side1 !== side3 && side2 !== side3){
-      return "scalene"
-    };
-  };
-
+    if (side1 + side2 <= side3 || side1 + side3 <= side2 || side2 + side3 <=side1) {
+      return "This is not a valid triangle";
+    } else {
+      if (side1 === side2 && side1 === side3 && side2 === side3) {
+        return "equilateral";
+      } else if (side1 === side2 || side1 === side3 || side2 === side3) {
+        return "isosceles";
+      } else {
+        return "scalene";
+      }
+    }
+  }
 };
 
 $(function() {
@@ -21,15 +23,8 @@ $(function() {
     var side2=parseInt(sidesarray[1]);
     var side3=parseInt(sidesarray[2]);
 
-    if (isNaN(side1) || isNaN(side2) || isNaN(side3)) {
-      $(".results").text("An error has occurred, please check your input!");
-    }
-      else {
-      var results = triangle(side1,side2,side3);
-      $(".results").text(results);
-    };
-
-
+    var results = triangle(side1,side2,side3);
+    $(".results").text(results);
     $("#results").show();
     event.preventDefault();
   });
