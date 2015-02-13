@@ -5,9 +5,9 @@ var triangle = function(side1, side2, side3) {
   } else {
     if (side1 === side2 && side1 === side3 && side2 === side3) {
       return "equilateral"
-    } else if (side1 == side2 || side1 == side3 || side2 == side3) {
+    } else if (side1 === side2 || side1 === side3 || side2 === side3) {
       return "isosceles"
-    } else {
+    } else if (side1 !== side2 && side1 !== side3 && side2 !== side3){
       return "scalene"
     };
   };
@@ -17,14 +17,11 @@ var triangle = function(side1, side2, side3) {
 $(function() {
   $("form#triangle").submit(function(event) {
     var sidesarray = ($("input#sides").val()).split(",")
-    console.log(sidesarray)
     var side1=parseInt(sidesarray[0]);
     var side2=parseInt(sidesarray[1]);
     var side3=parseInt(sidesarray[2]);
-
-
+    console.log(side1,side2,side3)
     var results = triangle(side1,side2,side3);
-    console.log(results)
     $(".results").text(results);
 
 

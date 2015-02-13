@@ -15,5 +15,4 @@ describe("triangle", function(){
   it("will return that the inputed 3 sides do not make a valid triangle if any side is at least the lenth of the other two sides combined", function() {
     expect(triangle(2,2,8)).to.equal("This is not a valid triangle");
   });
-
 });
